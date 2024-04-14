@@ -1,0 +1,17 @@
+<script type="text/javascript" src="https://form.jotform.com/jsform/241045424193450"></script>
+
+<script>
+(function() {
+  var formID = '241045424193450'; // Replace 'FORM_ID' with your actual form ID
+  var thankYouPageURL = 'https://google.com/'; // Replace 'YOUR_THANK_YOU_PAGE_URL' with the URL of your thank you page
+
+  // Check if the form has been submitted before
+  if (localStorage.getItem(formID)) {
+    // Redirect to the thank you page
+    window.location.href = thankYouPageURL;
+  } else {
+    // Add a submission flag to local storage
+    localStorage.setItem(formID, 'submitted');
+  }
+})();
+</script>
