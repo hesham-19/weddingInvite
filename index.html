@@ -5,7 +5,7 @@
     function checkFormSubmission() {
       var formID = '241045424193450'; // Replace 'FORM_ID' with your actual form ID
       var formLink = 'https://www.jotform.com/build/241045424193450'; // Replace 'YOUR_FORM_LINK' with the URL of your form
-      var thankYouPageURL = 'Google.com'; // Replace 'YOUR_THANK_YOU_PAGE_URL' with the URL of your thank you page
+      var thankYouPageURL = 'google.com'; // Replace 'YOUR_THANK_YOU_PAGE_URL' with the URL of your thank you page
       
       // Check if the form has been submitted before
       if (document.cookie.indexOf(formID) !== -1) {
@@ -19,7 +19,24 @@
     
     // Call the checkFormSubmission function on page load
     window.onload = checkFormSubmission;
+    
+    // Function to set a cookie upon form submission
+    function setFormSubmittedCookie() {
+      var formID = 'FORM_ID'; // Replace 'FORM_ID' with your actual form ID
+      var expirationDate = new Date();
+      expirationDate.setFullYear(expirationDate.getFullYear() + 1); // Set the cookie expiration to 1 year
+      
+      document.cookie = formID + '=submitted; expires=' + expirationDate.toUTCString() + '; path=/';
+    }
   </script>
 </head>
-<body></body>
+<body>
+  <!-- Add your form HTML code here -->
+  
+  <script>
+    // Call the setFormSubmittedCookie function when the form is submitted
+    // Replace 'yourForm' with the ID or class of your form
+    document.querySelector('#yourForm').addEventListener('submit', setFormSubmittedCookie);
+  </script>
+</body>
 </html>
